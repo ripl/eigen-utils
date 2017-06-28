@@ -78,7 +78,7 @@
 #
 # ----
 # File: lcmtypes.cmake
-# Distributed with pods version: 12.09.21
+# Distributed with pods version: 12.11.14
 
 cmake_minimum_required(VERSION 2.6.0)
 
@@ -369,7 +369,7 @@ function(lcmtypes_build_java)
 
     # search for lcmtypes_*.jar files in well-known places and add them to the
     # classpath
-    foreach(pfx /usr /usr/local ${CMAKE_INSTALL_PREFIX})
+    foreach(pfx ${CMAKE_INSTALL_PREFIX} /usr /usr/local)
         file(GLOB_RECURSE jarfiles ${pfx}/share/java/lcmtypes_*.jar)
         foreach(jarfile ${jarfiles})
             set(java_classpath ${java_classpath}:${jarfile})
